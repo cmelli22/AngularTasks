@@ -1,0 +1,14 @@
+<span class="counter" *ngIf= "currentWeather?.count && !isLoading"> {{currentWeather.count }} Resultados</span>
+<span class="counter" *ngIf = "!currentWeather?.count && !isLoading">No Arroja Resultados</span>
+<span  class="counter" *ngIf = "isLoading"> Cargando</span>
+<div class="weather-card" *ngFor = "let ciudades of currentWeather?.list">
+    <div class="weather-card-header">
+        <span class="name">{{ciudades.name}} , {{ciudades.sys.country}}</span>
+        <span class="coord">({{ciudades.coord.lat}} , {{ciudades.coord.long}} </span>
+    </div>
+    <div class="weather-card-body">
+        <span>Temperatura :{{ ciudades.main.temp }}</span>
+        <span>Humedad : {{ciudades.main.humidity}}</span>
+    </div>
+
+</div>

@@ -1,4 +1,6 @@
 
+<app-nav-bar class="nav-bar" (searchWeather)="searchWeather($event)"></app-nav-bar>
+<app-weather-card [isLoading]="isLoading" [currentWeather]="currentWeather"></app-weather-card>
 
   <footer class="footer">
     <button class="btn btn-primary btn-block" [routerLink]="['/my-tasks']">Ver todas mis tareas</button>

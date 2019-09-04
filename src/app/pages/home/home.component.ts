@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { WeatherServiceService } from 'src/app/shared/services/weather-service.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,40 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  public currentWeather: any = null;
+  public isLoading: boolean = false;
+
+  constructor(private weatherService : WeatherServiceService) { }
 
   ngOnInit() {
+    this.searchWeather('Cordoba');
   }
+
+  searchWeather(param :string): void{
+    this.currentWeather = null;
+    this.isLoading = true;
+
+    let params = {
+      q : param,
+      units : "metric",
+      type : "link"
+    }
+
+    this.weatherService.getWeather(params).subscribe(
+      res => {
+        this.currentWeather = res;
+        this.isLoading = false;
+      },
+
+      err => {
+        this.isLoading = false;
+        console.error(err);
+
+      }
+
+    )
+
+
+  } 
 
 }

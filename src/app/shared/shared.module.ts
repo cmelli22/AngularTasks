@@ -9,6 +9,8 @@ import { TaskComponent } from './components/task/task.component';
 import { AddTaskComponent } from './components/add-task/add-task.component';
 import { LocalStorageService } from './services/local-storage.service';
 import { NavBarComponent } from '../shared/components/nav-bar/nav-bar.component'
+import { WeatherServiceService } from './services/weather-service.service';
+import { WeatherCardComponent } from '../shared/components/weather-card/weather-card.component';
 
 
 @NgModule({
@@ -17,7 +19,8 @@ import { NavBarComponent } from '../shared/components/nav-bar/nav-bar.component'
     TasksListComponent,
     TaskComponent,
     AddTaskComponent,
-    NavBarComponent
+    NavBarComponent,
+    WeatherCardComponent
     
   ],
   imports: [
@@ -29,14 +32,16 @@ import { NavBarComponent } from '../shared/components/nav-bar/nav-bar.component'
     
   ],
   providers: [
-    LocalStorageService
+    LocalStorageService,
+    WeatherServiceService
   ],
   exports: [
     HeaderComponent,
     TasksListComponent,
     TaskComponent,
     AddTaskComponent,
-    NavBarComponent
+    NavBarComponent,
+    WeatherCardComponent
     
   ]
 })
