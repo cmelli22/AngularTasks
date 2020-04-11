@@ -1,8 +1,10 @@
 <app-nav-bar></app-nav-bar>
-<app-add-task (newTask)="onNewTask($event)"></app-add-task>
-<app-tasks-list [taskList]="myTasks"></app-tasks-list>
-<alert type="success" *ngIf="lastTaskAdd" >la Tarea {{lastTaskAdd}} fue Agregada Correctamente</alert>
-<button type="button" class="btn btn-primary" routerLink="/">
-    Volver
-  </button>
+<div class="content">
+  <app-add-task (newTask)="onNewTask($event)"></app-add-task>
+  <app-tasks-list [taskList]="myTasks"></app-tasks-list>
+  <alert type="success" *ngIf="lastTaskAdd" >la Tarea {{lastTaskAdd}} fue Agregada Correctamente</alert>
+  <button type="button" class="btn btn-primary" routerLink="/">
+      Volver
+    </button>
+</div>
 
